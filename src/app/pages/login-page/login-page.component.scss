@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.login-form {
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  p-button {
+    margin-left: auto;
+    button {
+      width: 120px;
+    }
+  }
+}
+.login-form__inputs {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

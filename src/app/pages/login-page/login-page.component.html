@@ -1,0 +1,25 @@
+<div class="container">
+  <form class="login-form" (submit)="onSubmit()">
+    <h1>Вход</h1>
+
+    <div class="login-form__inputs">
+      <input
+        type="text"
+        pInputText
+        placeholder="Логин"
+        variant="filled"
+        [(ngModel)]="login"
+        name="login"
+      />
+      <input
+        type="password"
+        pInputText
+        placeholder="Пароль"
+        variant="filled"
+        [(ngModel)]="password"
+        name="password"
+      />
+    </div>
+    <p-button label="Вход" type="submit" />
+  </form>
+</div>
