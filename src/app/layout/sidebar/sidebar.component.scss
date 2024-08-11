@@ -1,0 +1,27 @@
+@import url('../../../styles/reset.scss');
+
+:host {
+  display: block;
+}
+
+.sidebar {
+  
+  height: 100vh;
+  background-color: var(--black-color);
+  color: #fff;
+  padding: 15px;
+}
+.sidebar__container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .logo{
+    margin-bottom: 50px;
+  }
+
+  app-menu{
+    flex: 1;
+  }
+}

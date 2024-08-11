@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
+// @import url('./styles/reset.scss');
+@import  './styles/variables';
 * {
   box-sizing: border-box;
 }
@@ -12,4 +13,16 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+
+.content{
+  // padding: 20px 15px;
+}
+
+.content__table{
+  padding: 0 15px;
+}
+
+.container {
 }

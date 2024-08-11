@@ -1,7 +1,8 @@
 .home-page {
 }
 .home-page__container {
-  display: flex;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
 }
 .home-page__contant {
 }
