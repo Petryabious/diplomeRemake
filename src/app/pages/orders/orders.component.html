@@ -1,35 +1,47 @@
 <div class="content">
-    
-        <app-header title="Заказы"></app-header>
-        <app-tool-panel></app-tool-panel>
-     
-        <div class="content__table">
-            <p-table 
-            [value]="products" 
-            styleClass="p-datatable-gridlines" 
-            [scrollable]="true" 
-            [scrollHeight]="'calc(100vh - 150px )'"
-            [virtualScrollItemSize]="46"
-            >
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Code</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Quantity</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-product>
-                    <tr>
-                        <td>{{ product.code }}</td>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.category }}</td>
-                        <td>{{ product.quantity }}</td>
-                    </tr>
-                </ng-template>
-        </p-table>
-        </div>
-  
+  <app-header title="Заказы"></app-header>
+  <app-tool-panel></app-tool-panel>
 
+  <div class="content__table">
+    <p-contextMenu #cm [model]="items" />
+
+    <p-table
+      [value]="products"
+      [resizableColumns]="true"
+      columnResizeMode="expand"
+      styleClass="p-datatable-gridlines"
+      [scrollable]="true"
+      [scrollHeight]="'calc(100vh - 150px )'"
+      responsiveLayout="stack"
+      [virtualScrollItemSize]="46"
+      selectionMode="multiple"
+      [(selection)]="selectedProduct"
+      [contextMenu]="cm"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="code">Code <p-sortIcon field="code" /></th>
+          <th pSortableColumn="Name">Name <p-sortIcon field="Name" /></th>
+          <th pSortableColumn="Category">
+            Category <p-sortIcon field="Category" />
+          </th>
+          <th pSortableColumn="Quantity">
+            Quantity <p-sortIcon field="Quantity" />
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr [pSelectableRow]="product" [pContextMenuRow]="product">
+          <td>{{ product.code }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.quantity }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <app-popup-add-column
+    [isVisible]="isVisiblePopup"
+    (visiblePopupHandler)="closePopup($event)"
+  ></app-popup-add-column>
 </div>
-

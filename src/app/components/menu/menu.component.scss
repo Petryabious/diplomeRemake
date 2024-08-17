@@ -1,22 +1,24 @@
-@import url('../../../styles/reset.scss');
+@import url("../../../styles/reset.scss");
 
 .menu-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .menu-item {
-  
-    a {
-        padding: 10px;
-        display: flex;
-        // justify-content: center;
-        // align-items: center;
-        // text-align: center;
-    
-        transition: .3s ease-in;
-        &:hover{
-            background-color: #666060;
-        }
+  a {
+    padding: 10px;
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // text-align: center;
+
+    transition: 0.3s ease-in;
+    &:hover {
+      background-color: #666060;
     }
+  }
+  a.active {
+    background-color: rgb(86, 143, 2);
+  }
 }

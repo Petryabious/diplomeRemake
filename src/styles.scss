@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 // @import url('./styles/reset.scss');
-@import  './styles/variables';
+@import "./styles/variables";
+@import "primeicons/primeicons.css";
 * {
   box-sizing: border-box;
 }
@@ -15,12 +16,11 @@ body {
   padding: 0;
 }
 
-
-.content{
+.content {
   // padding: 20px 15px;
 }
 
-.content__table{
+.content__table {
   padding: 0 15px;
 }
 
