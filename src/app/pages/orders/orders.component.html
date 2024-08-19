@@ -1,6 +1,6 @@
 <div class="content">
   <app-header title="Заказы"></app-header>
-  <app-tool-panel></app-tool-panel>
+  <app-tool-panel (isPopupAddGood)="showPopup($event)"></app-tool-panel>
 
   <div class="content__table">
     <p-contextMenu #cm [model]="items" />
@@ -40,8 +40,17 @@
       </ng-template>
     </p-table>
   </div>
-  <app-popup-add-column
+  @if (typeOfPopup == 'addColumn') {
+    <app-popup-add-column
+      [isVisible]="isVisiblePopup"
+      (visiblePopupHandler)="closePopup($event)"
+    ></app-popup-add-column>
+  }
+  @if (typeOfPopup == 'popupGood') {
+    <app-popup-good 
     [isVisible]="isVisiblePopup"
     (visiblePopupHandler)="closePopup($event)"
-  ></app-popup-add-column>
+    
+    ></app-popup-good>
+  }
 </div>

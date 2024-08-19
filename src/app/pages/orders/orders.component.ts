@@ -4,6 +4,7 @@ import { TableModule } from 'primeng/table';
 import { ToolPanelComponent } from '../../layout/tool-panel/tool-panel.component';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { PopupAddColumnComponent } from '../../components/dialogs/popup-add-column/popup-add-column.component';
+import { PopupGoodComponent } from '../../components/dialogs/popup-good/popup-good.component';
 
 @Component({
   selector: 'app-orders',
@@ -14,6 +15,7 @@ import { PopupAddColumnComponent } from '../../components/dialogs/popup-add-colu
     ToolPanelComponent,
     ContextMenuModule,
     PopupAddColumnComponent,
+    PopupGoodComponent
   ],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss',
@@ -22,12 +24,13 @@ export class OrdersComponent implements OnInit {
   public products: any[] = [];
   public selectedProduct: any;
   public isVisiblePopup = false;
-
+  public typeOfPopup = 'addColumn';
   public items: any;
 
   constructor() {}
 
   ngOnInit(): void {
+    console.log('init orders')
     for (let index = 0; index < 5; index++) {
       this.products.push({
         id: index,
@@ -46,15 +49,19 @@ export class OrdersComponent implements OnInit {
       {
         label: 'Добавить колонку',
         icon: 'pi pi-fw pi-bars',
-        command: () => this.showPopup(),
+        command: () => this.showPopup('addColumn'),
       },
     ];
   }
 
-  public showPopup() {
+  public showPopup(typeOfPopup:string) {
+    console.log(typeOfPopup)
+    this.typeOfPopup = typeOfPopup;
     this.isVisiblePopup = true;
+    
   }
   public closePopup(val: boolean) {
     this.isVisiblePopup = val;
   }
+
 }
