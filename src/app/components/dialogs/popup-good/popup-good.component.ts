@@ -19,7 +19,6 @@ export class PopupGoodComponent implements OnInit {
 
 
   constructor(){
-    console.log('init popup good')
     
   }
 

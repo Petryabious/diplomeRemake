@@ -27,6 +27,15 @@ export class OrdersComponent implements OnInit {
   public typeOfPopup = 'addColumn';
   public items: any;
 
+  public cols = [
+    { field: 'code', header: 'Code' },
+    { field: 'name', header: 'Name' },
+    { field: 'category', header: 'Category' },
+    { field: 'quantity', header: 'Quantity' }
+];
+
+  public selectedColumns = [...this.cols];
+
   constructor() {}
 
   ngOnInit(): void {
@@ -62,6 +71,15 @@ export class OrdersComponent implements OnInit {
   }
   public closePopup(val: boolean) {
     this.isVisiblePopup = val;
+  }
+  public editOrderPopup(val:any){
+    console.log(visualViewport)
+    this.showPopup('popupGood');
+  }
+
+  public changeColumnsHandler(colms:any){
+    console.log('colms from handler', colms)
+    this.selectedColumns = [...colms];
   }
 
 }

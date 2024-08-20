@@ -1,0 +1,13 @@
+.add-column{
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.add-column__btns{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
