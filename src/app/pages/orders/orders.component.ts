@@ -5,6 +5,8 @@ import { ToolPanelComponent } from '../../layout/tool-panel/tool-panel.component
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { PopupAddColumnComponent } from '../../components/dialogs/popup-add-column/popup-add-column.component';
 import { PopupGoodComponent } from '../../components/dialogs/popup-good/popup-good.component';
+import { Product } from '../../interfaces/test/product.interface';
+import { Column } from '../../interfaces/test/column.interface';
 
 @Component({
   selector: 'app-orders',
@@ -21,20 +23,20 @@ import { PopupGoodComponent } from '../../components/dialogs/popup-good/popup-go
   styleUrl: './orders.component.scss',
 })
 export class OrdersComponent implements OnInit {
-  public products: any[] = [];
-  public selectedProduct: any;
+  public products: Product[] = [];
+  public selectedProduct!: Product;
   public isVisiblePopup = false;
   public typeOfPopup = 'addColumn';
-  public items: any;
+  public itemsOfContextMenu: any;
 
-  public cols = [
+  public cols: Column[] = [
     { field: 'code', header: 'Code' },
     { field: 'name', header: 'Name' },
     { field: 'category', header: 'Category' },
     { field: 'quantity', header: 'Quantity' }
 ];
 
-  public selectedColumns = [...this.cols];
+  public selectedColumns:Column[] = [...this.cols];
 
   constructor() {}
 
@@ -54,17 +56,21 @@ export class OrdersComponent implements OnInit {
         rating: 5,
       });
     }
-    this.items = [
+    this.itemsOfContextMenu = [
       {
         label: 'Добавить колонку',
         icon: 'pi pi-fw pi-bars',
         command: () => this.showPopup('addColumn'),
       },
+      {
+        label: 'Изменить',
+        icon: 'pi pi-fw pi-pen-to-square',
+        command: () => this.editOrderPopup('addColumn'),
+      },
     ];
   }
 
   public showPopup(typeOfPopup:string) {
-    console.log(typeOfPopup)
     this.typeOfPopup = typeOfPopup;
     this.isVisiblePopup = true;
     
@@ -73,12 +79,11 @@ export class OrdersComponent implements OnInit {
     this.isVisiblePopup = val;
   }
   public editOrderPopup(val:any){
-    console.log(visualViewport)
+    console.log(this.selectedProduct)
     this.showPopup('popupGood');
   }
 
-  public changeColumnsHandler(colms:any){
-    console.log('colms from handler', colms)
+  public changeColumnsHandler(colms:Column[]){
     this.selectedColumns = [...colms];
   }
 

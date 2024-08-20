@@ -1,4 +1,10 @@
-<p-dialog header="Edit Profile" [modal]="true" [(visible)]="isVisible" [style]="{ width: '25rem' }">
+<p-dialog 
+header="Edit Profile" 
+[modal]="true" 
+[(visible)]="isVisible" 
+[style]="{ width: '25rem' }"
+(visibleChange)="closePopup()"
+>
     <span class="p-text-secondary block mb-5">Update your information.123</span>
     <div class="flex align-items-center gap-3 mb-3">
         Some information

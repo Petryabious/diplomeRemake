@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { Product } from '../../../interfaces/test/product.interface';
 
 
 @Component({
@@ -13,9 +14,10 @@ import { ButtonModule } from 'primeng/button';
 export class PopupGoodComponent implements OnInit {
  
   @Input() isVisible = false;
-  @Input() product:any;
+  @Input() product!:Product;
+  @Input() type: string = '';
 
-  @Output() visiblePopupHandler = new EventEmitter<boolean>();
+  @Output() isVisibleChange = new EventEmitter<boolean>();
 
 
   constructor(){
@@ -26,6 +28,6 @@ export class PopupGoodComponent implements OnInit {
     console.log('init popup good')
   }
   public closePopup() {
-    this.visiblePopupHandler.emit(false);
+    this.isVisibleChange.emit(false);
   }
 }

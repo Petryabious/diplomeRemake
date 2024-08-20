@@ -3,6 +3,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
+import { Column } from '../../../interfaces/test/column.interface';
 
 @Component({
   selector: 'app-popup-add-column',
@@ -13,11 +14,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class PopupAddColumnComponent implements OnInit {
   @Input() isVisible = false;
-  @Input() columns:any;
-  @Input() selectedColumns:any;
-  @Output() visiblePopupHandler = new EventEmitter<boolean>();
-  @Output() changeColumns = new EventEmitter();
-  public selectedColumnsPopup:any;
+  @Input() columns:Column[] = [];
+  @Input() selectedColumns:Column[]= [];
+  @Output() isVisibleChange = new EventEmitter<boolean>();
+  @Output() changeColumns = new EventEmitter<Column[]>();
+  public selectedColumnsPopup:Column[] = [];
 
   // public visible!: boolean;
 
@@ -26,7 +27,7 @@ export class PopupAddColumnComponent implements OnInit {
   }
 
   public closePopup() {
-    this.visiblePopupHandler.emit(false);
+    this.isVisibleChange.emit(false);
   }
 
   public changeSelectedColumns() {

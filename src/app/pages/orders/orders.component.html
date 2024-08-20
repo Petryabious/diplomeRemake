@@ -3,7 +3,7 @@
   <app-tool-panel (isPopupAddGood)="showPopup($event)"></app-tool-panel>
 
   <div class="content__table">
-    <p-contextMenu #cm [model]="items" />
+    <p-contextMenu #cm [model]="itemsOfContextMenu" />
 
     <p-table
       [value]="products"
@@ -14,7 +14,7 @@
       [scrollHeight]="'calc(100vh - 150px )'"
       responsiveLayout="stack"
       [virtualScrollItemSize]="46"
-      selectionMode="multiple"
+      selectionMode="single"
       [(selection)]="selectedProduct"
       [contextMenu]="cm"
       [columns]="selectedColumns" 
@@ -28,10 +28,10 @@
           }
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-products let-columns = "columns">
-        <tr [pSelectableRow]="products" [pContextMenuRow]="products">
+      <ng-template pTemplate="body" let-product let-columns = "columns">
+        <tr [pSelectableRow]="product" [pContextMenuRow]="product">
           @for (col of columns; track $index) {
-            <td>{{products[col.field]}}</td>
+            <td>{{product[col.field]}}</td>
           }
         </tr>
       </ng-template>
@@ -39,18 +39,16 @@
   </div>
   @if (typeOfPopup == 'addColumn') {
     <app-popup-add-column
-      [isVisible]="isVisiblePopup"
       [columns]="cols"
       [selectedColumns]="selectedColumns"
-      (visiblePopupHandler)="closePopup($event)"
+      [(isVisible)]="isVisiblePopup"
       (changeColumns)="changeColumnsHandler($event)"
     >
   </app-popup-add-column>
   }
   @if (typeOfPopup == 'popupGood') {
     <app-popup-good 
-    [isVisible]="isVisiblePopup"
-    (visiblePopupHandler)="closePopup($event)"
+    [(isVisible)]="isVisiblePopup"
     
     ></app-popup-good>
   }
