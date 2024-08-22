@@ -1,13 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+
+import { InputTextModule } from 'primeng/inputtext';
+
 import { Product } from '../../../interfaces/test/product.interface';
 
 
 @Component({
   selector: 'app-popup-good',
   standalone: true,
-  imports: [DialogModule, ButtonModule],
+  imports: [DialogModule, ButtonModule, InputTextModule, DropdownModule],
   templateUrl: './popup-good.component.html',
   styleUrl: './popup-good.component.scss'
 })
@@ -19,6 +23,13 @@ export class PopupGoodComponent implements OnInit {
 
   @Output() isVisibleChange = new EventEmitter<boolean>();
 
+  public cities = [
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+];
 
   constructor(){
     

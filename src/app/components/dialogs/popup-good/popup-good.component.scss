@@ -1,0 +1,16 @@
+.popup-good {
+
+    input{
+        height: 25px;
+    }
+}
+.popup-good__fields {
+    margin-bottom: 20px;
+    display: grid;
+    gap: 10px;
+}
+.popup-good__field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
