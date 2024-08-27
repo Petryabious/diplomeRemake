@@ -1,11 +1,8 @@
 .popup-good {
 
-    input{
-        height: 25px;
-    }
 }
 .popup-good__fields {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     display: grid;
     gap: 10px;
 }
@@ -14,3 +11,16 @@
     flex-direction: column;
     gap: 5px;
 }
+
+.popup-good__btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.p-dropdown	{
+    width: 100% !important;
+}
+
+// .p-dropdown {}

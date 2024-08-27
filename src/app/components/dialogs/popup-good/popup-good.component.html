@@ -8,7 +8,7 @@ header="Edit Profile"
     <form class="popup-good">
         <div class="popup-good__fields">
             <div class="popup-good__field">
-                <label for="code">Code</label>
+                <label for="code">Code {{type}}</label>
                 <input [disabled]="true" id="code" type="text" pInputText formControlName="text" />
             </div>
             <div class="popup-good__field">
@@ -23,6 +23,7 @@ header="Edit Profile"
                 optionLabel="name"
                 placeholder="Select a City" 
                 id="category"
+                [style]="{'minWidth':'100%'}"
                 />
             </div>
             <div class="popup-good__field">
@@ -31,8 +32,8 @@ header="Edit Profile"
             </div>
         </div>
         <div class="popup-good__btns">
-            <p-button label="Cancel" severity="secondary" (onClick)="isVisible = false" />
-            <p-button label="Save" (onClick)="isVisible = false" />
+            <p-button label="Отмена" severity="secondary" (onClick)="isVisible = false" />
+            <p-button label="Сохранить" (onClick)="isVisible = false" />
         </div>
     </form>
 </p-dialog>
