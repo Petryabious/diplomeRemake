@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { PopupAddColumnComponent } from './components/dialogs/popup-add-column/popup-add-column.component';
+import { TestComponent } from './pages/test/test.component';
 
 export const routes: Routes = [
   {
@@ -41,7 +42,7 @@ export const routes: Routes = [
       },
       {
         path: 'test',
-        component: PopupAddColumnComponent,
+        component: TestComponent,
       },
       {
         path: '',

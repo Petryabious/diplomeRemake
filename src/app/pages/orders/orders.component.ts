@@ -7,6 +7,7 @@ import { PopupAddColumnComponent } from '../../components/dialogs/popup-add-colu
 import { PopupGoodComponent } from '../../components/dialogs/popup-good/popup-good.component';
 import { Product } from '../../interfaces/test/product.interface';
 import { Column } from '../../interfaces/test/column.interface';
+import { TableComponent } from "../../components/table/table.component";
 
 @Component({
   selector: 'app-orders',
@@ -17,17 +18,15 @@ import { Column } from '../../interfaces/test/column.interface';
     ToolPanelComponent,
     ContextMenuModule,
     PopupAddColumnComponent,
-    PopupGoodComponent
-  ],
+    PopupGoodComponent,
+    TableComponent
+],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss',
 })
 export class OrdersComponent implements OnInit {
   public products: Product[] = [];
   public selectedProduct!: Product;
-  public isVisiblePopup = false;
-  public typeOfPopup = 'addColumn';
-  public itemsOfContextMenu: any;
 
   public cols: Column[] = [
     { field: 'code', header: 'Code' },
@@ -56,35 +55,8 @@ export class OrdersComponent implements OnInit {
         rating: 5,
       });
     }
-    this.itemsOfContextMenu = [
-      {
-        label: 'Добавить колонку',
-        icon: 'pi pi-fw pi-bars',
-        command: () => this.showPopup('addColumn'),
-      },
-      {
-        label: 'Изменить',
-        icon: 'pi pi-fw pi-pen-to-square',
-        command: () => this.editOrderPopup('addColumn'),
-      },
-    ];
+
   }
 
-  public showPopup(typeOfPopup:string) {
-    this.typeOfPopup = typeOfPopup;
-    this.isVisiblePopup = true;
-    
-  }
-  public closePopup(val: boolean) {
-    this.isVisiblePopup = val;
-  }
-  public editOrderPopup(val:any){
-    console.log(this.selectedProduct)
-    this.showPopup('popupGood');
-  }
-
-  public changeColumnsHandler(colms:Column[]){
-    this.selectedColumns = [...colms];
-  }
 
 }

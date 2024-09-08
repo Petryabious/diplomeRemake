@@ -20,6 +20,7 @@ export class PopupGoodComponent implements OnInit {
   @Input() isVisible = false;
   @Input() product!:Product;
   @Input() type: string = '';
+  @Input() header: string = '';
 
   @Output() isVisibleChange = new EventEmitter<boolean>();
 
@@ -37,6 +38,7 @@ export class PopupGoodComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('init popup good')
+    console.log(this.type)
   }
   public closePopup() {
     this.isVisibleChange.emit(false);

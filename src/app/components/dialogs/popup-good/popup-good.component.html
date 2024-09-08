@@ -1,5 +1,5 @@
 <p-dialog 
-header="Edit Profile" 
+[header]="header" 
 [modal]="true" 
 [(visible)]="isVisible" 
 [style]="{ width: '25rem' }"
@@ -8,7 +8,7 @@ header="Edit Profile"
     <form class="popup-good">
         <div class="popup-good__fields">
             <div class="popup-good__field">
-                <label for="code">Code {{type}}</label>
+                <label for="code">Code </label>
                 <input [disabled]="true" id="code" type="text" pInputText formControlName="text" />
             </div>
             <div class="popup-good__field">
