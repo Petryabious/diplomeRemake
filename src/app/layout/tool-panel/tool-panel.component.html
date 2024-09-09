@@ -1,11 +1,10 @@
 <div class="tool-panel">
   <p-button (onClick)="showPopupAdd()" label="Добавить " />
-  <div class="tool-panel__sort">
-    <!-- <p-dropdown
-      [options]="options"
-      [(ngModel)]="currentOption"
-      optionLabel="name"
-      placeholder="Select a City"
-    /> -->
-  </div>
+  <p-button label="Изменить" severity="secondary" />
+  <p-button label="История" severity="info" />
 </div>
+
+<app-popup-good
+  [(isVisible)]="isPopupOpen"
+  header="Добавить товар"
+></app-popup-good>

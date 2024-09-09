@@ -1,39 +1,45 @@
-<p-dialog 
-[header]="header" 
-[modal]="true" 
-[(visible)]="isVisible" 
-[style]="{ width: '25rem' }"
-(visibleChange)="closePopup()"
+<p-dialog
+  [header]="header"
+  [modal]="true"
+  [(visible)]="isVisible"
+  [style]="{ width: '25rem' }"
+  (visibleChange)="closePopup()"
 >
-    <form class="popup-good">
-        <div class="popup-good__fields">
-            <div class="popup-good__field">
-                <label for="code">Code </label>
-                <input [disabled]="true" id="code" type="text" pInputText formControlName="text" />
-            </div>
-            <div class="popup-good__field">
-                <label for="name">Name</label>
-                <input  id="name" type="text" pInputText formControlName="text" />
-            </div>
-            <div class="popup-good__field">
-                <label for="category">Category	</label>
-                <p-dropdown 
-                formControlName="selectedCity" 
-                [options]="cities"
-                optionLabel="name"
-                placeholder="Select a City" 
-                id="category"
-                [style]="{'minWidth':'100%'}"
-                />
-            </div>
-            <div class="popup-good__field">
-                <label for="quantity">Quantity</label>
-                <input  id="quantity" type="text" pInputText formControlName="text" />
-            </div>
-        </div>
-        <div class="popup-good__btns">
-            <p-button label="Отмена" severity="secondary" (onClick)="isVisible = false" />
-            <p-button label="Сохранить" (onClick)="isVisible = false" />
-        </div>
-    </form>
+  <form class="popup-good">
+    <div class="popup-good__fields">
+      <div class="popup-good__field">
+        <label for="code">Code </label>
+        <input
+          [disabled]="true"
+          id="code"
+          type="text"
+          pInputText
+          formControlName="text"
+        />
+      </div>
+      <div class="popup-good__field">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText formControlName="text" />
+      </div>
+      <div class="popup-good__field">
+        <label for="category">Category </label>
+        <p-dropdown
+          formControlName="selectedCity"
+          [options]="cities"
+          optionLabel="name"
+          placeholder="Select a City"
+          id="category"
+          [style]="{ minWidth: '100%' }"
+        />
+      </div>
+      <div class="popup-good__field">
+        <label for="quantity">Quantity</label>
+        <input id="quantity" type="text" pInputText formControlName="text" />
+      </div>
+    </div>
+    <div class="popup-good__btns">
+      <p-button label="Отмена" severity="secondary" (onClick)="closePopup()" />
+      <p-button label="Сохранить" (onClick)="isVisible = false" />
+    </div>
+  </form>
 </p-dialog>
