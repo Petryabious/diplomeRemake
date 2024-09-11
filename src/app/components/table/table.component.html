@@ -45,9 +45,10 @@ selectionMode="single"
     >
   </app-popup-add-column>
   }
-  @if (typeOfPopup == 'popupGood') {
+  @if (typeOfPopup == 'editProduct') {
     <app-popup-good 
     [(isVisible)]="isVisiblePopup"
     header="Изменить товар"
+    
     ></app-popup-good>
   }

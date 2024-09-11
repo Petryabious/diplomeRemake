@@ -43,8 +43,8 @@ export class TableComponent implements OnInit {
     {
       label: 'Изменить',
       icon: 'pi pi-fw pi-pen-to-square',
-      command: () => this.editOrderPopup(),
-      visible: this.isLabelEdit,
+      command: () => this.showPopup('editProduct'),
+      visible: this.isLabelEdit(),
     },
   ];
   ngOnInit(): void {
@@ -60,27 +60,21 @@ export class TableComponent implements OnInit {
     this.isVisiblePopup = true;
   }
 
-  public editOrderPopup() {
-    console.log(this.selectedProduct);
-  }
+
 
   public onRowSelect() {
-    this.isLabelEdit.set(true);
-    // this.itemsOfContextMenu.push({
-    //   label: 'Изменить',
-    //   icon: 'pi pi-fw pi-pen-to-square',
-    //   command: () => this.editOrderPopup(),
-    //   visible: this.isLabelEdit,
-    // });
-    // console.log(this.itemsOfContextMenu);
-    // this.itemsOfContextMenu[1].visible = true;
+    // this.isLabelEdit.set(true);
+   
+    this.itemsOfContextMenu[1].visible = true;
   }
 
   public onRowUnselect() {
-    this.isLabelEdit.set(false);
+    // this.isLabelEdit.set(false);
     // this.itemsOfContextMenu = this.itemsOfContextMenu.filter(
     //   (item) => item.label != 'Изменить'
     // );
     // this.itemsOfContextMenu[1].visible = false;
+    this.itemsOfContextMenu[1].visible = false;
+
   }
 }
